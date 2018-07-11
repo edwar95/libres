@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></link>
+        <title>Iniciar Sesion</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <p:panel id="basic" style="margin-bottom:20px; align-content: center;">
+            <h:panelGrid columns="2"  cellpadding="5"  style="text-align: center; height:50px; align-content: center; ">
+                <p:graphicImage  style="  height:100px; margin-top: 10px; margin-left: 205px;
+                                 left: 50%; top:50%; "   name="demo/images/descarga.jpg" />
+                <h3  style="center">GOBIERNO AUTONOMO DESCENTRALIZADO DE LA PROVINCIA DE PICHINCHA</h3>
+                <h3 style="center">BOLSA DE EMPLEO</h3>
+            </h:panelGrid>
+        </p:panel>
+        <p:outputPanel>
+            <h3 style="display:block; text-align:center">Iniciar Sesion</h3>
+            <br></br>
+            <br></br>
+            <div class="ui-grid">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-3"></div>
+                    <div class="ui-grid-col-3">
+                        <h4>Numero de Cedula</h4>
+                        <br></br>
+                        <h4>Contraseña</h4>    
+                    </div>
+                    <div class="ui-grid-col-3">
+                        <p:inputText />
+                        <br></br>
+                        <br></br>
+                        <p:password id="pwd2" value="#{passwordView.password5}" label="Password 2" required="true" />
+                    </div>
+                    <div class="ui-grid-col-3"></div>
+                </div>
+            </div>
+            <br></br>
+            <br></br>
+            <div class="ui-grid" style="display:block; text-align:center"> 
+                <div class="ui-grid-col-12">
+                    <p:button  outcome="pantallaPrincipal.xhtml" value="Iniciar Sesion" >
+
+                    </p:button>
+                </div>
+            </div>
+        </p:outputPanel>
+
+    </h:body>
+</html>

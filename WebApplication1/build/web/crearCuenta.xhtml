@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></link>
+        <title>Crear Cuenta</title>
+    </h:head>
+    <h:body>
+        <p:panel id="basic" style="margin-bottom:20px; align-content: center;">
+            <h:panelGrid columns="2"  cellpadding="5"  style="text-align: center; height:50px; align-content: center; ">
+                <p:graphicImage  style="  height:100px; margin-top: 10px; margin-left: 205px;
+                                 left: 50%; top:50%; "   name="demo/images/descarga.jpg" />
+                <h3  style="center">GOBIERNO AUTONOMO DESCENTRALIZADO DE LA PROVINCIA DE PICHINCHA</h3>
+                <h3 style="center">BOLSA DE EMPLEO</h3>
+            </h:panelGrid>
+        </p:panel>
+        <h3 style="display:block; text-align:center">Crear Cuenta</h3>
+        <br></br>
+        <br></br>
+        <h:form>
+        <p:panel header="Registro de Datos">
+            <p:messages>
+                <p:autoUpdate />
+            </p:messages>
+
+            <h:panelGrid id="grid" columns="4" cellpadding="5">
+                <h:outputLabel for="nombre" value="Nombre:" style="font-weight:bold"/>
+                <p:inputText id="name" value="#{validationView.text}" required="true" label="Name"/>
+                <p:message for="name" />
+                <h:outputText value="#{validationView.text}" />
+
+                <h:outputLabel for="correo" value="Correo:" style="font-weight:bold"/>
+                <p:inputText id="number" value="#{validationView.integer}" label="Number">
+                    <f:validateDoubleRange minimum="5" maximum="8" />
+                </p:inputText>
+                <p:message for="number" />
+                <h:outputText value="#{validationView.integer}" />
+
+                <h:outputLabel for="dd" value="Numero de Identificacion:" style="font-weight:bold"/>
+                <p:inputText id="dd" value="#{validationView.doubleNumber}" converterMessage="Cannot convert to double.">
+                    <f:validateDoubleRange minimum="5.5" maximum="8.5" />
+                </p:inputText>
+                <p:message for="dd" />
+                <h:outputText value="#{validationView.doubleNumber}" />
+
+                <h:outputLabel for="money" value="Contraseña:" style="font-weight:bold"/>
+                <p:inputText id="money" value="#{validationView.money}" label="Currency">
+                    <f:convertNumber type="currency" currencySymbol="$"/>
+                </p:inputText>
+                <p:message for="money" />
+                <h:outputText value="#{validationView.money}">
+                    <f:convertNumber  type="currency" currencySymbol="$" />
+                </h:outputText>
+
+                <h:outputLabel for="regex" value="Repetir Contraseña" style="font-weight:bold"/>
+                <p:inputText id="regex" value="#{validationView.regexText}" validatorMessage="Value does not match pattern.">
+                    <f:validateRegex pattern="^[a-zA-Z]+$" />
+                </p:inputText>
+                <p:message for="regex" />
+                <h:outputText value="#{validationView.regexText}" />
+
+                
+            </h:panelGrid>
+
+            <p:commandButton value="Registrar" ajax="false" validateClient="true" style="margin-right:10px"/>
+        </p:panel>
+        </h:form>
+    </h:body>
+</html>
