@@ -23,36 +23,36 @@ and open the template in the editor.
                 <h3 style="center">BOLSA DE EMPLEO</h3>
             </h:panelGrid>
         </p:panel>
-        <p:outputPanel>
-            <h3 style="display:block; text-align:center">Iniciar Sesion</h3>
-            <br></br>
-            <br></br>
-            <div class="ui-grid">
-                <div class="ui-grid-row">
-                    <div class="ui-grid-col-3"></div>
-                    <div class="ui-grid-col-3">
-                        <h4>Numero de Cedula</h4>
-                        <br></br>
-                        <h4>Contraseña</h4>    
-                    </div>
-                    <div class="ui-grid-col-3">
-                        <p:inputText />
-                        <br></br>
-                        <br></br>
-                        <p:password id="pwd2" value="#{passwordView.password5}" label="Password 2" required="true" />
-                    </div>
-                    <div class="ui-grid-col-3"></div>
-                </div>
-            </div>
-            <br></br>
-            <br></br>
-            <div class="ui-grid" style="display:block; text-align:center"> 
-                <div class="ui-grid-col-12">
-                    <p:button  outcome="pantallaPrincipal.xhtml" value="Iniciar Sesion" >
 
-                    </p:button>
+        <p:outputPanel>
+
+            <h3 style="display:block; text-align:center">Iniciar Sesion</h3>
+            <h:form>
+                <div class="ui-grid">
+
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-3"></div>
+                        <div class="ui-grid-col-3"> <h4>Numero de Identificación</h4> </div>
+                        <div class="ui-grid-col-3"> <h:inputText value=""></h:inputText> </div>
+                        <div class="ui-grid-col-3"></div>
+                    </div>
+
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-3"></div>
+                        <div class="ui-grid-col-3"> <h4>Contraseña </h4> </div>
+                        <div class="ui-grid-col-3"> <h:inputSecret  id="pwd1" value="" label="Password 1" required="true" /> </div>
+                        <div class="ui-grid-col-3"></div>
+                    </div>
+
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-5"></div>
+                        <div class="ui-grid-col-2"> <h:commandButton value="Iniciar Sesión" action="prueba.xhtml"/> </div>
+                        <div class="ui-grid-col-5"></div>
+                    </div>
+
                 </div>
-            </div>
+            </h:form>
+
         </p:outputPanel>
 
     </h:body>
