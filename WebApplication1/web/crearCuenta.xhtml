@@ -30,26 +30,28 @@ and open the template in the editor.
 
                 <h:panelGrid id="grid" columns="4" cellpadding="5">
                     <p>Nombre</p>
-                    <p:inputMask id="name" mask="a-z" required="true" value="#{crearCuentaa.nombre}"/>
+                    <p:inputText id="name"  required="true" />
 
                     <p>Apellido</p>
-                    <p:inputText id="apellido" required="true"  value="#{crearCuentaa.apellido}"/>
+                    <p:inputText id="apellido" required="true"  />
 
                     <p>Correo</p>
-                    <p:inputText id="correo" required="true" value="#{crearCuentaa.correo}"></p:inputText>
+                    <p:inputText id="correo" required="true" ></p:inputText>
 
                     <p>Cedula</p>
-                    <p:inputText id="cedula" required="true" value="#{crearCuentaa.cedula}"/>
+                    <p:inputText id="cedula" required="true" value="#{inicioSesion.nombre}"/>
 
                     <p>Contraseña</p>
-                    <p:password id="contraseña" value="#{crearCuentaa.password}" />
+                    <p:password id="contraseña"  />
 
                     <p>Confirmar contraseña</p>
-                    <p:password id="confContraseña" value="#{crearCuentaa.confPassword}" />
+                    <p:password id="confContraseña"  />
 
+                    <h:commandButton action="prueba.xhtml" value="Crear Cuenta"/>
+                    
                 </h:panelGrid>
 
-                <p:commandButton action="pantallaPrincipal" value="Crear cuenta"/>
+                
 
             </p:panel>
         </h:form>
