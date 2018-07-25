@@ -45,6 +45,8 @@ public class CrearCuentaServlet extends HttpServlet {
  
         Consultas con = new Consultas();
         
+        System.out.print("hello world"+nombre+""+apellido);
+        
         if(con.ingresarCuenta(nombre, apellido, cedula, correo, Password)){
             response.sendRedirect("iniciarSesion.xhtml");
         }else{
