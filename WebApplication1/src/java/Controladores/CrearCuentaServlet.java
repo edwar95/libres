@@ -50,6 +50,8 @@ public class CrearCuentaServlet extends HttpServlet {
         }else{
             response.sendRedirect("crearCuenta.xhtml");
         }
+        
+        System.out.print("hello world"+nombre+""+apellido);
         /*
         Mail mail=new Mail();
         mail.sendEmail(correo,"Acceso al sistema", "Usuario: "+nombre+"\nPassword: "+Password);
