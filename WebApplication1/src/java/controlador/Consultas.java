@@ -22,7 +22,7 @@ public class Consultas extends Conexion {
         ResultSet rs = null;
 
         try {
-            String consulta = "SELECT * FROM `login` WHERE identificacion=? and calve=?";
+            String consulta = "SELECT * FROM `login` WHERE identificacion=? and pssw=?";
             pst=getConexion().prepareStatement(consulta);
             pst.setString(1, identificacion);
             pst.setString(2, contrasena);
@@ -47,10 +47,50 @@ public class Consultas extends Conexion {
 
         return false;
     }
+    
+    public boolean ingresarCuenta(String nombre,String apellido,String cedula,String correo,String password) {
+        PreparedStatement pst = null;
+        int rs = 0;
+
+        try {
+            String consulta = "INSERT INTO cuenta (nombre, apellido, cedula, correo, password)VALUES (?, ?, ?,?,?)";
+            pst=getConexion().prepareStatement(consulta);
+            pst.setString(1, nombre);
+            pst.setString(2, apellido);
+            pst.setString(3, cedula);
+            pst.setString(4, correo);
+            pst.setString(5, password);
+            rs = pst.executeUpdate();
+
+            if (rs==1) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.err.println("error" + e);
+        } finally {
+            try {
+                if (getConexion() != null) getConexion().close();
+                if(pst!=null) pst.close();
+                
+            } catch (Exception e) {
+                 System.err.println("error" + e);
+            }
+
+        }
+
+        return false;
+    }
+    
+    
     public static void main(String [] args){
         Consultas co= new Consultas();
-        System.out.print(""+co.autenticacion("170970757","david2")); 
+        System.out.print(""+co.ingresarCuenta("david","david","1724720808","davidmoralesp1995@hotmail.com","david"));
         
+        
+        Consultas con= new Consultas();
+        System.out.print(con.autenticacion("david", "david"));
+    
     }
     
 }

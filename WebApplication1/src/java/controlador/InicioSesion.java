@@ -5,9 +5,9 @@
  */
 package controlador;
 
+import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
-import javax.enterprise.context.RequestScoped;
+
 
 /**
  *

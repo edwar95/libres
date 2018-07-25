@@ -25,35 +25,33 @@ and open the template in the editor.
         <h3 style="display:block; text-align:center">Crear Cuenta</h3>
         <br></br>
         <br></br>
-        <h:form>
+        <form action="login" method="posts">
             <p:panel header="Registro de Datos">
+                <p:messages>
 
-                <h:panelGrid id="grid" columns="4" cellpadding="5">
-                    <p>Nombre</p>
-                    <p:inputText id="name"  required="true" />
+                </p:messages>
 
-                    <p>Apellido</p>
-                    <p:inputText id="apellido" required="true"  />
+                <p>Nombre</p>
+                <input id="name" required="true" value="#{crearCuentaa.nombre}"/>
 
-                    <p>Correo</p>
-                    <p:inputText id="correo" required="true" ></p:inputText>
+                <p>Apellido</p>
+                <input id="apellido" required="true" value="#{crearCuentaa.apellido}"/>
 
-                    <p>Cedula</p>
-                    <p:inputText id="cedula" required="true" value="#{inicioSesion.nombre}"/>
+                <p>Correo</p>
+                <input id="correo" required="true" value="#{crearCuentaa.correo}"/>
 
-                    <p>Contraseña</p>
-                    <p:password id="contraseña"  />
+                <p>Cedula</p>
+                <input id="cedula" required="true" value="#{crearCuentaa.cedula}"/>
 
-                    <p>Confirmar contraseña</p>
-                    <p:password id="confContraseña"  />
+                <p>Contraseña</p>
+                <input type="password" id="contraseña" value="#{crearCuentaa.password}" />
 
-                    <h:commandButton action="prueba.xhtml" value="Crear Cuenta"/>
-                    
-                </h:panelGrid>
-
+                <p>Confirmar contraseña</p>
                 
-
+                <input type="password" id="confContraseña" value="#{crearCuentaa.confPassword}" />
+                <input type="submit" value="Crear Cuenta" />
+                
             </p:panel>
-        </h:form>
+        </form>
     </h:body>
 </html>
