@@ -5,24 +5,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Gonzalo
  */
-@ManagedBean
+@Named(value = "crearCuentaa")
 @RequestScoped
 public class CrearCuentaa {
 
-    String nombre;
-    String apellido;
-    String cedula;
-    String correo;
-    String Password;
-    String confPassword;
-    conexion.Conectar conectar=new conexion.Conectar();
-    String validarConrreo;
-    String validarContrasenia;
+    private String nombre;
+    private String apellido;
+    private String cedula;
+    private String correo;
+    private String Password;
+    private String confPassword;
+   
 
     public CrearCuentaa() {
     }
@@ -82,23 +81,5 @@ public class CrearCuentaa {
         mail.sendEmail(correo, "Acceso al sistema", "Usuario: " + nombre + "\nPassword: " + Password);
 
     }
-    public void InsertarUsuario()
-    {
     
-    conectar.EjecutarSQL("Insert into artesano(nombre,apellido,correo,password1,confPassword)values("+nombre+","+apellido+","+correo+","+Password+","+confPassword);
-    }
-    public void comprobarCuenta(String x)
-    {
-     ResultSet consulta=conectar.Consulta("select *from artesano a where a.nombre='"+nombre+"'"+"&& a.password1='"+Password+"'");
-       try{
-            while(consulta.next()){
-                validarConrreo=consulta.getString(4);
-                validarContrasenia=consulta.getString(5);
-                System.out.println(validarConrreo);
-                 
-            }    
-        }catch(SQLException e){   
-            System.out.println("hay error en el while");
-        }  
-    }
 }

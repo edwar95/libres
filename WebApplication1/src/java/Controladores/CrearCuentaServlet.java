@@ -36,30 +36,34 @@ public class CrearCuentaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         PrintWriter out = response.getWriter();
-        String nombre=request.getParameter("name");
-        String apellido=request.getParameter("apellido");
-        String cedula=request.getParameter("correo");
-        String correo=request.getParameter("cedula");
-        String Password=request.getParameter("contraseña");
-        String confPassword=request.getParameter("confContraseña");
- 
+       
+        CrearCuentaa cuenta= new CrearCuentaa();
+        cuenta.setNombre(request.getParameter("name"));
+        cuenta.setApellido(request.getParameter("apellido"));
+        cuenta.setCedula(request.getParameter("cedula"));
+        cuenta.setCorreo(request.getParameter("correo"));
+        cuenta.setPassword(request.getParameter("contrasena"));
+        String confPassword=request.getParameter("confContrasena");
+        
+        
+        System.out.print(""+request.getParameter("name"));
+        System.out.print(""+cuenta.getNombre()+ cuenta.getApellido()+cuenta.getCedula()+cuenta.getCorreo()+cuenta.getPassword());
+        
+        
         Consultas con = new Consultas();
-        
-        System.out.print("hello world"+nombre+""+apellido);
-        
-        if(con.ingresarCuenta(nombre, apellido, cedula, correo, Password)){
+        Consultas con2=new Consultas();
+        if(con.ingresarCuenta(cuenta.getNombre(), cuenta.getApellido(), cuenta.getCedula(), cuenta.getCorreo(), cuenta.getPassword()) && con2.registrarLogin(cuenta.getCedula(),cuenta.getPassword())){
             response.sendRedirect("iniciarSesion.xhtml");
+            System.out.print("ingresa");
         }else{
             response.sendRedirect("crearCuenta.xhtml");
+            System.out.print("no ingresa");
         }
-        
-        System.out.print("hello world"+nombre+""+apellido);
-        /*
-        Mail mail=new Mail();
-        mail.sendEmail(correo,"Acceso al sistema", "Usuario: "+nombre+"\nPassword: "+Password);
+        /*Mail mail=new Mail();
+        mail.sendEmail(cuenta.getCorreo(),"Acceso al sistema", "Usuario: "+cuenta.getCedula()+"\nPassword: "+cuenta.getPassword());
         response.sendRedirect("iniciarSesion.xhtml");
-        
         */
+        
     }
      
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

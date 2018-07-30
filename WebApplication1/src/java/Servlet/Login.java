@@ -6,6 +6,7 @@
 package Servlet;
 
 import controlador.Consultas;
+import controlador.InicioSesion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,15 +33,17 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        InicioSesion login = new InicioSesion();
         
-        String identificacion = request.getParameter("identificacion");
-        String password = request.getParameter("pssw");
+        login.setNombre(request.getParameter("identificacion"));
+        login.setPssw(request.getParameter("pssw"));
         
         Consultas co = new Consultas();
-        if(co.autenticacion(identificacion, password)){
+        if(co.autenticacion(login.getNombre(), login.getPssw())){
             response.sendRedirect("pantallaPrincipal.xhtml");
         }else{
             response.sendRedirect("iniciarSesion.xhtml");
+            System.out.print("no sirve");
         }
         
         

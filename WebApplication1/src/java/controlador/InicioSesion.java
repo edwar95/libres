@@ -18,15 +18,16 @@ import javax.inject.Named;
 public class InicioSesion {
 
     private String nombre;
-    private int id;
+    private String  pssw;
 
-    public int getId() {
-        return id;
+    public String getPssw() {
+        return pssw;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPssw(String pssw) {
+        this.pssw = pssw;
     }
+
 
     /**
      * Creates a new instance of InicioSesion

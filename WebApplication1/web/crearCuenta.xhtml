@@ -25,32 +25,35 @@ and open the template in the editor.
         <h3 style="display:block; text-align:center">Crear Cuenta</h3>
         <br></br>
         <br></br>
-        <form action="crearCuentaServlet" method="posts">
-            <p:panel header="Registro de Datos">
+
+
+        <form action="CrearCuenta" method="posts">
+            <p:panel>
+
                 <p:messages>
 
                 </p:messages>
-
                 <p>Nombre</p>
-                <input id="name" required="true" />
+                <input name="name" required="true" />
 
                 <p>Apellido</p>
-                <input id="apellido" required="true"/>
+                <input name="apellido" required="true"/>
 
                 <p>Correo</p>
-                <input id="correo" required="true" />
+                <input name="correo" required="true" />
 
                 <p>Cedula</p>
-                <input id="cedula" required="true" />
+                <input name="cedula" required="true" />
 
                 <p>Contraseña</p>
-                <input type="password" id="contraseña" />
+                <input type="password" name="contrasena" />
 
                 <p>Confirmar contraseña</p>
-                
-                <input type="password" id="confContraseña"  />
+
+                <input type="password" name="confContrasena"  />
                 <input type="submit" value="Crear Cuenta" />
-                
+
+
             </p:panel>
         </form>
     </h:body>
